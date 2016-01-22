@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :devices
+  resources :users
+  devise_for :accounts
+  resources :servers
+  resources :versions
+  resources :operating_systems
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
