@@ -1,4 +1,5 @@
 class DevicesController < ApplicationController
+  before_action :set_account
   before_action :set_device, only: [:show, :edit, :update, :destroy]
 
   # GET /devices
@@ -62,6 +63,10 @@ class DevicesController < ApplicationController
   end
 
   private
+    def set_account
+      @account = Account.find(params[:account_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_device
       @device = Device.find(params[:id])

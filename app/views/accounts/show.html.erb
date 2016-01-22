@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @account.name %></h1> <span>Created on: <%= @account.created_at %></span>
+
+<h2>Devices:</h2>
+
+<table>	
+	<thead>
+		<tr>
+		<th>Name</th>
+		<th>Key</th>
+		<th>Banned</th>
+		<th>Account</th>
+		<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @account.devices.each do |device| %>
+			<tr>
+			<td><%= device.name %></td>
+			<td><%= device.key %></td>
+			<td><%= device.banned %></td>
+			<td><%= device.account %></td>
+			<td><%= link_to 'Show', device %></td>
+			<td><%= link_to 'Edit', edit_device_path(device) %></td>
+			<td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
